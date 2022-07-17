@@ -13,7 +13,7 @@ if (isset($_POST["id"]) && !empty($_POST["id"])) {
         if (empty($Name)) {
             $rname_error = "First Name is required.";
         } elseif (!filter_var($Name, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))) {
-            $rname_error = "First Name is invalid.";
+            $rname_error = "Recipe Name is invalid.";
         } else {
             $Name = $Name;
         }
