@@ -6,30 +6,30 @@ $rname_error = $ingred_error = $proces_error = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $Name = trim($_POST["rname"]);
-    if (empty($Name)) {
-        $rname_error = "Recipe Name is required.";
+    if (empty($name)) {
+        $Name_error = "Recipe Name is required.";
     } elseif (!filter_var($Name, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))) {
         $rname_error = "RECIPE Name is invalid.";
     } else {
         $Name = $Name;
     
-
-    $ingred = trim($_POST["ingred"]);
-    if(empty($ingred)){
+    }
+    $ingred1 = trim($_POST["ingred"]);
+    if(empty($ingred1)){
         $ingred_error = "ingredients are required.";
     } else {
-        $ingred = $ingred;
+        $ingred1 = $ingred1;
     }
     
-    $proces = trim($_POST["proces"]);
-    if(empty($proces)){
+    $proces1 = trim($_POST["proces"]);
+    if(empty($proces1)){
         $proces_error = "process is required.";
     } else {
-        $proces = $proces;
+        $proces1 = $proces1;
     }
 
     if (empty($rname_error) ) {
-          $sql = "INSERT INTO `users` (`rname`, `ingred`, `proces`) VALUES ('$Name', '$ingred', '$proces')";
+          $sql = "INSERT INTO `Recipe` (`rname`, `ingred`, `proces`) VALUES ('$Name', '$ingred1', '$proces1')";
 
           if (mysqli_query($conn, $sql)) {
               header("location: index.php");
