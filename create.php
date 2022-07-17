@@ -6,7 +6,7 @@ $rname_error = $ingred_error = $proces_error = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $Name = trim($_POST["rname"]);
-    if (empty($name)) {
+    if (empty($Name)) {
         $Name_error = "Recipe Name is required.";
     } elseif (!filter_var($Name, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))) {
         $rname_error = "RECIPE Name is invalid.";
